@@ -68,10 +68,8 @@ Faça assim:
 Os dados vão ser salvos automaticamente no navegador a partir de agora! 😊O problema é que o useEffect com localStorage dentro do useState inicial não funciona no GitHub Pages da mesma forma.
 Vou reverter para a versão que funcionava e adicionar o localStorage de forma diferente. Acesse o arquivo no GitHub e substitua apenas as 2 linhas que mudaram:
 👉 github.com/candidotainana-arch/Tainana-CRM-/edit/main/index.html
-Encontre a linha que tem:
+
 const {useState,useMemo,useEffect}=React;
-E mude de volta para:
-const {useState,useMemo}=React;
 
 const CLIENTES=`1249092|ADEMAR ALVES DE OLIVEIRA|(11) 91080-3512|ademar111190@gmail.com|04/11/2021
 1868351|ADRIAN LIMA DA HORA|(11) 99343-9227|adriandahora@uol.com|19/12/2024
