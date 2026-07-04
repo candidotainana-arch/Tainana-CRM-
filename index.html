@@ -4,9 +4,9 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>CRM — Gestão de Riscos TC</title>
-<script crossorigin src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
-<script crossorigin src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.23.10/babel.min.js"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter,sans-serif;background:#f8f9fc}
@@ -19,7 +19,7 @@ input,select,textarea,button{font-family:inherit}
 <div id="root"></div>
 <script type="text/babel">
 // CRM Gestão de Riscos TC — versão standalone
-const {useState,useMemo}=React;
+const {useState,useMemo,useEffect}=React;
 
 const CLIENTES=`1249092|ADEMAR ALVES DE OLIVEIRA|(11) 91080-3512|ademar111190@gmail.com|04/11/2021
 1868351|ADRIAN LIMA DA HORA|(11) 99343-9227|adriandahora@uol.com|19/12/2024
@@ -592,6 +592,11 @@ function CRM(){
   const[novoProspecto,setNovoProspecto]=useState(false);
   const[novoCliente,setNovoCliente]=useState(false);
   const[clientesExtra,setClientesExtra]=useState([]);
+
+  useEffect(()=>{ try{localStorage.setItem("crm_agendamentos",JSON.stringify(agendamentos));}catch{} },[agendamentos]);
+  useEffect(()=>{ try{localStorage.setItem("crm_historico",JSON.stringify(historico));}catch{} },[historico]);
+  useEffect(()=>{ try{localStorage.setItem("crm_prospectos",JSON.stringify(prospectos));}catch{} },[prospectos]);
+  useEffect(()=>{ try{localStorage.setItem("crm_clientesExtra",JSON.stringify(clientesExtra));}catch{} },[clientesExtra]);
 
   const todosClientes=useMemo(()=>{
     const extras=clientesExtra.map(c=>({
