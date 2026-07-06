@@ -593,11 +593,6 @@ function CRM(){
   const[novoCliente,setNovoCliente]=useState(false);
   const[clientesExtra,setClientesExtra]=useState([]);
 
-  useEffect(()=>{ try{localStorage.setItem("crm_agendamentos",JSON.stringify(agendamentos));}catch{} },[agendamentos]);
-  useEffect(()=>{ try{localStorage.setItem("crm_historico",JSON.stringify(historico));}catch{} },[historico]);
-  useEffect(()=>{ try{localStorage.setItem("crm_prospectos",JSON.stringify(prospectos));}catch{} },[prospectos]);
-  useEffect(()=>{ try{localStorage.setItem("crm_clientesExtra",JSON.stringify(clientesExtra));}catch{} },[clientesExtra]);
-
   const todosClientes=useMemo(()=>{
     const extras=clientesExtra.map(c=>({
       nome:c.nome.toUpperCase(),contato:c.contato,email:c.email,
